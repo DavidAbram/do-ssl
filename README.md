@@ -22,7 +22,7 @@ Follow the instructions below:
 
 1. Generate a SSH key pair (without a passphrase):
 
-```Bash
+```
 [root@machine digitalocean-ssl]# ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/root/.ssh/id_rsa):
