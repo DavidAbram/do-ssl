@@ -26,7 +26,9 @@ Follow the instructions below:
     2. Copy the content of ``/root/.ssh/id_rsa.pub`` to ``/root/.ssh/authorized_keys`` on children servers.
     3. Make sure you can SSH from the master server into the children servers without a password.
     
-2. Enter the domains for which to issue certificates in ``domains.txt`` (one domain per line).
+2. Enter the domains to issue certificates for in ``domains.txt`` (one domain per line).
+
 3. Execute ``./create.sh``. This will generate a certificate for every 100 domains in ``domains.txt``.
+
 4. An attempt will be made to upload the certificate to remote servers (using the domain names as addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``.
 
