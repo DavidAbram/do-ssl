@@ -1,6 +1,6 @@
 # digitalocean-ssl
 
-### Interduction
+## Introduction
 
 Generate SSL certificates for DigitalOcean domain records using letsencrypt.org.
 
@@ -16,7 +16,7 @@ The ACME challenge is done through DNS (using TXT entries), which are created us
 
 ![alt tag](https://igorsaric.github.io/images/cert.svg)
 
-### Usage
+## Usage
 
 Follow the instructions below:
 
