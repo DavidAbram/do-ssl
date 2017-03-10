@@ -6,7 +6,7 @@ This project enables you to generate and renew SSL certificates provided by Let'
 
 The idea behind this project is to issue a single certificate on a "master" server and propagate it to "children" servers, so that a single shared certificate can be used on subdomains. A single certificate can hold up to 100 individual subdomain names (SAN certificate), and because Let's Encrypt allows you to issue 20 of such certificates per week, you can supply the certificates for up to 2000 subdomains (per week).
 
-The certificates are uploaded to children servers using SSH, both on initial issue and on renewal. You can supply the commands to be executed on children servers on a successful renewal, such as service restart.
+The certificates are uploaded to children servers using SSH, both after the certificate was issued and on renewal. You can supply the commands to be executed on children servers on a successful renewal, such as service restart.
 
 The ACME challenge is done through DNS (using TXT entries), which are created through API on DigitalOcean domain records, as displayed on the image below:
 
