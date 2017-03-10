@@ -1,3 +1,2 @@
-example.com
-hello.example.com
-world.example.com
+echodb.io
+manage.echodb.io
