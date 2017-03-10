@@ -2,9 +2,7 @@
 
 ## Introduction
 
-Generate SSL certificates for DigitalOcean domain records using letsencrypt.org.
-
-This project enables you to generate and renew SSL certificates provided by Let's Encrypt (let's encrypt.org).
+This project enables you to generate and renew SSL certificates provided by Let's Encrypt (let's encrypt.org) using DigitalOcean DNS API ).
 
 The idea behind this project is to issue a single certificate on a "master" server and propagate it to "children" servers. A single certificate can hold up to 100 individual subdomain names (SAN certificate), and because Let's Encrypt allows you to issue 20 of such certificates per week, you can supply the cerificates for up to 2000 subdomains per week.
 
