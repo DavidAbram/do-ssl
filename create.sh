@@ -1,8 +1,8 @@
 #!/bin/bash
 
-declare auth="$(pwd)/auth.sh"
-declare cleanup="$(pwd)/cleanup.sh"
-declare domains="$(pwd)/domains.txt"
+declare auth="$(pwd)/scripts/auth.sh"
+declare cleanup="$(pwd)/scripts/cleanup.sh"
+declare domains="$(pwd)/scripts/domains.txt"
 
 while true
 do
