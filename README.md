@@ -28,5 +28,5 @@ Follow the instructions below:
 
 3. Execute ``./create.sh``. This will generate a certificate for every 100 domains in ``domains.txt``.
 
-4. An attempt will be made to upload the certificate to remote servers (using the domain names as addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``.
+4. An attempt will be made to upload the certificates to remote servers (using the domain names as addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``.
 
