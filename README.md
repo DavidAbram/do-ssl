@@ -24,6 +24,7 @@ Follow the instructions below:
 
     1. On the master server, use ``ssh-keygen`` to generate a SSH key pair without a passphrase.
     2. Copy the content of ``/root/.ssh/id_rsa.pub`` to ``/root/.ssh/authorized_keys`` on children servers.
+    3. Verify you can SSH to children servers without a password.
 
 4. Execute ``./create.sh``. This will generate a certificate for every 100 domains in ``domains.txt``.
 
