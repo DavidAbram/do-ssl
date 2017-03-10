@@ -8,7 +8,7 @@ The idea behind this project is to issue a single certificate on a "master" serv
 
 The master server also checks if the certificates should be renewed and does so if necessary.
 
-The certificates are uploaded to children servers using SSH, both on initial issue and on renewal. You can supply the commands to be executed on children servers on a successful renewal, such as http server restart.
+The certificates are uploaded to children servers using SSH, both on initial issue and on renewal. You can supply the commands to be executed on children servers on a successful renewal, such as service restart.
 
 The ACME challenge is done through DNS (using TXT entries), which are created through API on DigitalOcean domain records.
 
