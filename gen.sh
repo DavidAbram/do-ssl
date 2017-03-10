@@ -26,3 +26,4 @@ do
 done < $domains
 
 exit 0
+

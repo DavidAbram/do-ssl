@@ -17,3 +17,4 @@ declare api_url="https://api.digitalocean.com/v2/domains/$master_domain/records"
 
 # ensure tmp dir
 mkdir -p "$tmp"
+
