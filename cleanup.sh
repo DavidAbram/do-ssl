@@ -15,4 +15,4 @@ declare response=$(curl -s -X DELETE -H "$content_type" -H "$auth_header" "$api_
 log "DO response: $response"
 
 # cleanup
-rm $id_path
+rm -rf $id_path
