@@ -19,6 +19,7 @@ do
     # --force-renewal
 
     certbot certonly --manual -d $params --preferred-challenges dns \
+    --test-cert \
     --agree-tos --noninteractive --manual-public-ip-logging-ok \
     --manual-auth-hook $auth --manual-cleanup-hook $cleanup
 
