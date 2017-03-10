@@ -6,12 +6,13 @@
 source "$(pwd)/common.sh"
 
 # get ID
-declare idpath="$tmp/id_$CERTBOT_DOMAIN"
-declare id=$(cat $idpath)
+declare id_path="$tmp/id_$CERTBOT_DOMAIN"
+declare id=$(cat $id_path)
 log "Deleting TXT with ID $id"
 
 # delete TXT with ID
-declare response=$(curl -s -X DELETE -H "$ct" -H "$auth" "$url/$id")
+declare response=$(curl -s -X DELETE -H "$content_type" -H "$auth_header" "$api_url/$id")
 log "DO response: $response"
 
-rm $idpath
+# cleanup
+rm $id_path

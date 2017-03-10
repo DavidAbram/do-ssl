@@ -7,7 +7,8 @@ source "$(pwd)/common.sh"
 
 declare hostname=""
 
-if [ "$CERTBOT_DOMAIN" = "$domain" ]
+# handle root domain case
+if [ "$CERTBOT_DOMAIN" = "$master_domain" ]
 then
     hostname="_acme-challenge"
 else
@@ -19,10 +20,12 @@ declare json="{\"type\":\"TXT\",\"name\":\"$hostname\",\"data\":\"$CERTBOT_VALID
 log "Writing TXT for domain $CERTBOT_DOMAIN: Hostname: $hostname, Value: $CERTBOT_VALIDATION"
 
 # run
-declare response=$(curl -s -X POST -H "$ct" -H "$auth" -d "$json" "$url")
+declare response=$(curl -s -X POST -H "$content_type" -H "$auth_header" -d "$json" "$api_url")
+
 log "DO response: $response"
 
 declare id=$(echo "$response" | jq ".domain_record | .id")
-declare idpath="$tmp/id_$CERTBOT_DOMAIN"
-echo "$id" > $idpath
-log "TXT ID $id was written to $idpath"
+declare id_path="$tmp_dir/id_$CERTBOT_DOMAIN"
+
+echo "$id" > $id_path
+log "TXT ID $id was written to $id_path"
