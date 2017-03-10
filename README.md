@@ -2,7 +2,7 @@
 
 ## Introduction
 
-These scripts enable you to generate and renew SSL certificates provided by Let's Encrypt (letsencrypt.org) using DigitalOcean domain record API.
+These scripts enable you to generate and renew SSL certificates provided by Let's Encrypt (letsencrypt.org) using DigitalOcean API domain record validation.
 
 The idea behind this project is to issue a single certificate on a "master" server and propagate it to "child" servers, so that a single shared certificate can be used on up to 100 subdomains. Let's Encrypt allows you to issue 20 of such certificates per week, which means you can supply the certificates for up to 2000 subdomains in total (per week).
 
