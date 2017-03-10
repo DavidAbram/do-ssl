@@ -8,9 +8,9 @@ This project enables you to generate and renew SSL certificates provided by Let'
 
 The idea behind this project is to issue a single certificate on a "master" server and propagate it to "children" servers. A single certificate can hold up to 100 individual subdomain names (SAN certificate), and because Let's Encrypt allows you to issue 20 of such certificates per week, you can supply the cerificates for up to 2000 subdomains per week.
 
-The "master" server also checks if the certificates should be renewed and does so if necessary.
+The master server also checks if the certificates should be renewed and does so if necessary.
 
-The certificates are uploaded to "children" servers using SSH, both on initial upload and on renewal. You can supply the commands to be executed on "children" servers on a successful renewal, such as http server restart.
+The certificates are uploaded to children servers using SSH, both on initial upload and on renewal. You can supply the commands to be executed on children servers on a successful renewal, such as http server restart.
 
 The ACME challenge is done through DNS (using TXT entries), which are created using an API on DigitalOcean domain records.
 
@@ -48,9 +48,9 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-3. Copy the content of /root/.ssh/id_rsa.pub to /root/ssh/authorized_keys on remote servers.
+3. Copy the content of ``/root/.ssh/id_rsa.pub`` to ``/root/ssh/authorized_keys`` on remote servers.
 4. Make sure you can SSH into remote servers without a password.
-5. Enter the domains you whis to isse certificates for in domains.txt (one domain per line).
-6. Execute ./create.sh. This will generate a certificate for every 100 domains in domains.txt.
-7. An attempt will be made to upload the certificate to remote servers (using the domain names as addresses). The certificates will be uploaded to /etc/certs/fullchain.pem and /etc/certs/privkey.pem.
+5. Enter the domains you whis to issue certificates for in ``domains.txt`` (one domain per line).
+6. Execute ``./create.sh``. This will generate a certificate for every 100 domains in ``domains.txt``.
+7. An attempt will be made to upload the certificate to remote servers (using the domain names as addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``.
 
