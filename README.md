@@ -20,7 +20,8 @@ The ACME challenge is done through DNS (using TXT entries), which are created us
 
 Follow the instructions below:
 
-1. Generate a SSH key pair (without a passphrase):
+1. SSH to a  master servers.
+2. Generate a SSH key pair without a passphrase (skip if you have an existing one):
 
 ```
 [root@machine digitalocean-ssl]# ssh-keygen
@@ -47,6 +48,9 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-2. Enter the domains you whis to isse certificates for in domains.txt (one domain per line).
-3. run create.sh - this will generate a certificate for every 100 domains in domains.txt
-4. An attempt will be made to upload the certificate on the remote servers (using the domain names as destinations).
+3. Copy the content of /root/.ssh/id_rsa.pub to /root/ssh/authorized_keys on remote servers.
+4. Make sure you can SSH into remote servers without a password.
+5. Enter the domains you whis to isse certificates for in domains.txt (one domain per line).
+6. Execute ./create.sh. This will generate a certificate for every 100 domains in domains.txt.
+7. An attempt will be made to upload the certificate to remote servers (using the domain names as addresses). The certificates will be uploaded to /etc/certs/fullchain.pem and /etc/certs/privkey.pem.
+
