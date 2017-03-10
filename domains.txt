@@ -1,2 +1,0 @@
-echodb.io
-manage.echodb.io
