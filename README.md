@@ -20,11 +20,10 @@ Follow the instructions below:
 
 2. Configure the values in ``config.json`` (DigitalOcean API token, master domain string, automatic upload).
 
-1. If you enabled automatic upload in ``config.json``, setup passwordless SSH to children servers:
+1. If you enabled automatic upload in ``config.json``, ensure you can SSH to children servers without a password:
 
     1. On the master server, use ``ssh-keygen`` to generate a SSH key pair without a passphrase.
     2. Copy the content of ``/root/.ssh/id_rsa.pub`` to ``/root/.ssh/authorized_keys`` on children servers.
-    3. Make sure you can SSH from master server to children servers without a password.
 
 4. Execute ``./create.sh``. This will generate a certificate for every 100 domains in ``domains.txt``.
 
