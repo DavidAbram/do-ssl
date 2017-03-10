@@ -19,9 +19,11 @@ The ACME challenge is done through DNS (using TXT entries), which are created th
 Follow the instructions below:
 
 1. Setup passwordless SSH to children servers:
+
     1. On the master server, use ``ssh-keygen`` to generate a SSH key pair without a passphrase (skip if you have an existing one).
     2. Copy the content of ``/root/.ssh/id_rsa.pub`` to ``/root/.ssh/authorized_keys`` on children servers.
     3. Make sure you can SSH from master server to children servers without a password.
+    
 2. Enter the domains to issue certificates for in ``domains.txt`` (one domain per line).
 3. Setup the appropriate values in ``config.json``.
 4. Execute ``./create.sh``. This will generate a certificate for every 100 domains in ``domains.txt``.
