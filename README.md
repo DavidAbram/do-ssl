@@ -20,7 +20,7 @@ The ACME challenge is done through DNS (using TXT entries), which are created us
 
 Follow the instructions below:
 
-1. SSH to a  master servers.
+1. SSH to the master server.
 2. Generate a SSH key pair without a passphrase (skip if you have an existing one):
 
 ```
