@@ -41,5 +41,5 @@ z.example.com
 
 4. Execute ``./create.sh``. This will generate a certificate for every 100 domains in ``domains.txt``. The certificate files will be located in ``/etc/letsencrypt/live/<domain>/``
 
-5. If you enabled automatic upload in ``config.json``, an attempt will be made to upload the certificates to remote servers (using the domain names as addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``.
+5. An attempt will be made to upload the certificates to remote servers (using the domain names as destination addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``.
 
