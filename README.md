@@ -10,7 +10,7 @@ The master server also checks if the certificates should be renewed and does so 
 
 The certificates are uploaded to children servers using SSH, both on initial issue and on renewal. You can supply the commands to be executed on children servers on a successful renewal, such as http server restart.
 
-The ACME challenge is done through DNS (using TXT entries), which are created using an API on DigitalOcean domain records.
+The ACME challenge is done through DNS (using TXT entries), which are created through API on DigitalOcean domain records.
 
 ![alt tag](https://igorsaric.github.io/images/cert.svg)
 
