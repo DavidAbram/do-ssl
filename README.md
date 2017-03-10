@@ -21,33 +21,7 @@ The ACME challenge is done through DNS (using TXT entries), which are created us
 Follow the instructions below:
 
 1. SSH to the master server.
-2. Generate a SSH key pair without a passphrase (skip if you have an existing one):
-
-```
-[root@machine digitalocean-ssl]# ssh-keygen
-Generating public/private rsa key pair.
-Enter file in which to save the key (/root/.ssh/id_rsa):
-Created directory '/root/.ssh'.
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your identification has been saved in /root/.ssh/id_rsa.
-Your public key has been saved in /root/.ssh/id_rsa.pub.
-The key fingerprint is:
-SHA256:X7mlp39TpBMaAbrodMtT8vYZ4XvF4ROSUhdLCzadt8I root@machine
-The key's randomart image is:
-+---[RSA 2048]----+
-|          .. +.oo|
-|         .  o.+++|
-|        .   o.ooo|
-|       . . ..E.+.|
-|      o S . =o==o|
-|     o o * o.=oo+|
-|      . + + = .oo|
-|         o . *...|
-|            =o...|
-+----[SHA256]-----+
-```
-
+2. Use ``ssh-keygen`` to generate a SSH key pair without a passphrase (skip if you have an existing one).
 3. Copy the content of ``/root/.ssh/id_rsa.pub`` to ``/root/ssh/authorized_keys`` on remote servers.
 4. Make sure you can SSH into remote servers without a password.
 5. Enter the domains you whis to issue certificates for in ``domains.txt`` (one domain per line).
