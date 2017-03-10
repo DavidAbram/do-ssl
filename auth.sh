@@ -1,20 +1,10 @@
 #!/bin/bash
 
-set -euo pipefail
+# $CERTBOT_DOMAIN -> domain that is being validated, i.e. hello.example.com
+# $CERTBOT_VALIDATION -> valiation string
 
-log()
-{
-    echo "$(date): $1" >> certbot.log
-}
+source "$(pwd)/common.sh"
 
-declare token="<set DigitalOcean API token here>"
-declare domain="<set parent domain here>"
-
-declare tmp="/tmp/do_certbot"
-mkdir -p "$tmp"
-
-declare ct="Content-Type: application/json"
-declare auth="Authorization: Bearer $token"
 declare hostname=""
 
 if [ "$CERTBOT_DOMAIN" = "$domain" ]
@@ -24,11 +14,9 @@ else
     hostname="_acme-challenge.${CERTBOT_DOMAIN%%.*}"
 fi
 
-declare url="https://api.digitalocean.com/v2/domains/$domain/records"
-declare value="$CERTBOT_VALIDATION"
-declare json="{\"type\":\"TXT\",\"name\":\"$hostname\",\"data\":\"$value\"}"
+declare json="{\"type\":\"TXT\",\"name\":\"$hostname\",\"data\":\"$CERTBOT_VALIDATION\"}"
 
-log "Writing TXT for domain $CERTBOT_DOMAIN: Hostname: $hostname, Value: $value"
+log "Writing TXT for domain $CERTBOT_DOMAIN: Hostname: $hostname, Value: $CERTBOT_VALIDATION"
 
 # run
 declare response=$(curl -s -X POST -H "$ct" -H "$auth" -d "$json" "$url")
