@@ -6,7 +6,7 @@
 source "$(pwd)/common.sh"
 
 # get ID
-declare id_path="$tmp/id_$CERTBOT_DOMAIN"
+declare id_path="$tmp_dir/id_$CERTBOT_DOMAIN"
 declare id=$(cat $id_path)
 log "Deleting TXT with ID $id"
 

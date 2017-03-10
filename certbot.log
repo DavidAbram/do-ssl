@@ -1,0 +1,6 @@
+Fri Mar 10 05:57:58 UTC 2017: Writing TXT for domain echodb.io: Hostname: _acme-challenge.echodb, Value: -bto1oX_Sf7-7R350h3ljCURpEAbe8oHjO0XoOMgf5Q
+Fri Mar 10 05:58:00 UTC 2017: DO response: {"id":"unauthorized","message":"Unable to authenticate you."}
+Fri Mar 10 05:58:00 UTC 2017: TXT ID null was written to /tmp/do_certbot/id_echodb.io
+Fri Mar 10 05:58:00 UTC 2017: Writing TXT for domain manage.echodb.io: Hostname: _acme-challenge.manage, Value: i31RQ7wa5GUmAZZkzAlnM_eSUGbeSd-YTt3g3x0TQgE
+Fri Mar 10 05:58:02 UTC 2017: DO response: {"id":"unauthorized","message":"Unable to authenticate you."}
+Fri Mar 10 05:58:02 UTC 2017: TXT ID null was written to /tmp/do_certbot/id_manage.echodb.io
