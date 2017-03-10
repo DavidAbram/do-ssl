@@ -16,9 +16,22 @@ The ACME challenge is done through DNS (using TXT entries), which are created th
 
 Follow the instructions below:
     
-1. Enter the domains to issue certificates for in ``domains.txt`` (one domain per line).
+1. Enter the domains to issue certificates for in ``domains.txt`` (one domain per line), for example:
+```
+example.com
+x.example.com
+y.example.com
+z.example.com
+```
 
-2. Configure the values in ``config.json`` (DigitalOcean API token, master domain string, automatic upload).
+2. Configure the values in ``config.json`` (DigitalOcean API token, master domain string).
+
+```
+{
+    "api_token": "<set your DigitalOcean API key here>",
+    "master_domain": "<set your master domain here, i.e. example.com>"
+}
+```
 
 1. If you enabled automatic upload in ``config.json``, ensure you can SSH to children servers without a password:
 
