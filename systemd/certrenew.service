@@ -1,0 +1,6 @@
+[Unit]
+Description=Let's Encrypt renewal
+
+[Service]
+Type=oneshot
+ExecStart=/home/user/digitalocean-ssl/renew.sh
