@@ -11,11 +11,10 @@ The certificates are uploaded to "children" servers using SSH, both on initial u
 
 The ACME challenge is done through DNS (using TXT entries), which are created using an API on DigitalOcean domain records.
 
-Follow the instructions below:
+![alt tag](https://igorsaric.github.io/images/cert.svg)
 
+Follow the instructions below:
 1. Generate a SSH key pair:
 2. Enter the domains you whis to isse certificates for in domains.txt (one domain per line).
 3. run create.sh - this will generate a certificate for every 100 domains in domains.txt
 4. An attempt will be made to upload the certificate on the remote servers (using the domain names as destinations).
-
-![alt tag](https://igorsaric.github.io/images/cert.svg)
