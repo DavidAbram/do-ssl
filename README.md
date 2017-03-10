@@ -4,9 +4,9 @@
 
 These scripts enable you to generate and renew SSL certificates provided by Let's Encrypt (letsencrypt.org) using DigitalOcean domain record API.
 
-The idea behind this project is to issue a single certificate on a "master" server and propagate it to "child" servers, so that a single shared certificate can be used for up to 100 subdomains. Let's Encrypt allows you to issue 20 of such certificates per week, which means you can supply the certificates for up to 2000 subdomains (per week).
+The idea behind this project is to issue a single certificate on a "master" server and propagate it to "child" servers, so that a single shared certificate can be used on up to 100 subdomains. Let's Encrypt allows you to issue 20 of such certificates per week, which means you can supply the certificates for up to 2000 subdomains in total (per week).
 
-When issued or renewed, the certificates are uploaded to child servers using SSH. You can supply the commands to be executed on child servers on a successful renewal, such as service restart.
+When issued or renewed, the script uploads the certificates to child servers using SSH. You can supply the commands to be executed on child servers on a successful renewal, such as service restart. For this to work correctly, SSH key pair (public key) on child servers must be configured.
 
 The ACME challenge is done through DNS (using TXT entries), which are created through API on DigitalOcean domain records, as displayed on the image below:
 
