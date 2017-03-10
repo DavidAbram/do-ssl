@@ -1,4 +1,4 @@
 {
-    "do_api_key": "<set your DigitalOcean API key here>",
+    "api_token": "<set your DigitalOcean API key here>",
     "master_domain": "<set your master domain here, i.e. example.com>"
 }
