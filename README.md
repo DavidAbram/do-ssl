@@ -26,7 +26,7 @@ Follow the instructions below:
     
 2. Enter the domains to issue certificates for in ``domains.txt`` (one domain per line).
 
-3. Setup the appropriate values in ``config.json``.
+3. Configure the values in ``config.json`` (DigitalOcean API token, master domain string).
 
 4. Execute ``./create.sh``. This will generate a certificate for every 100 domains in ``domains.txt``.
 
