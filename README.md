@@ -2,7 +2,7 @@
 
 ## Introduction
 
-These scripts enable you to generate and renew SSL certificates provided by Let's Encrypt (letsencrypt.org) using DigitalOcean API domain record validation.
+These scripts enable you to generate and renew SSL certificates provided by Let's Encrypt (letsencrypt.org) using DigitalOcean API for domain record validation.
 
 The idea behind this project is to issue a single certificate on a "master" server and propagate it to "child" servers, so that a single shared certificate can be used on up to 100 subdomains. Let's Encrypt allows you to issue 20 of such certificates per week, which means you can supply the certificates for up to 2000 subdomains in total (per week).
 
@@ -39,7 +39,7 @@ z.example.com
     2. Copy the content of ``/root/.ssh/id_rsa.pub`` to ``/root/.ssh/authorized_keys`` on child servers.
     3. Verify you can SSH to child servers without a password.
 
-4. Execute ``./create.sh``. This will generate a certificate in ``/etc/letsencrypt/live/<domain>/`` for every 100 domains in ``domains.txt``.
+4. Execute ``./create.sh``. This will generate a certificate in ``/etc/letsencrypt/live/<first_domain>/`` for every 100 domains in ``domains.txt``.
 
 5. An attempt will be made to upload the certificates to remote servers (using the domain names as destination addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``. Configure nginx (example provided) to consume the issued certificates.
 
