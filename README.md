@@ -23,6 +23,7 @@ Follow the instructions below:
     y.example.com
     z.example.com
     ```
+    
 2. Configure the required values in ``config.json``:
     ```
     {
