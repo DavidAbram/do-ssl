@@ -24,7 +24,7 @@ y.example.com
 z.example.com
 ```
 
-2. Configure the values in ``config.json`` (DigitalOcean API token, master domain string).
+2. Configure the required values in ``config.json``:
 
 ```
 {
@@ -39,7 +39,7 @@ z.example.com
     2. Copy the content of ``/root/.ssh/id_rsa.pub`` to ``/root/.ssh/authorized_keys`` on child servers.
     3. Verify you can SSH to child servers without a password.
 
-4. Execute ``./create.sh``. This will generate a certificate for every 100 domains in ``domains.txt``. The certificate files will be located in ``/etc/letsencrypt/live/<domain>/``
+4. Execute ``./create.sh``. This will generate a certificate for every 100 domains in ``domains.txt``. The certificate files will be found in ``/etc/letsencrypt/live/<domain>/``
 
 5. An attempt will be made to upload the certificates to remote servers (using the domain names as destination addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``. Configure nginx (example provided) to consume the issued certificates.
 
