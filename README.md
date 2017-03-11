@@ -17,13 +17,16 @@ The ACME challenge is done through DNS (using TXT entries), which are created th
 Follow the instructions below:
     
 1. On master server, enter the domains to issue certificates for in ``domains.txt`` (one domain per line), for example:
+
 ```
 example.com
 x.example.com
 y.example.com
 z.example.com
 ```
+
 2. Configure the required values in ``config.json``:
+
 
 ```
 {
@@ -31,11 +34,13 @@ z.example.com
     "master_domain": "<set your master domain here, i.e. example.com>"
 }
 ```
+
 3. Ensure you can SSH from the master server to child servers without a password. If not, take the following actions:
 
     1. On the master server, use ``ssh-keygen`` to generate a SSH key pair without a passphrase.
     2. Copy the content of ``/root/.ssh/id_rsa.pub`` to ``/root/.ssh/authorized_keys`` on child servers.
     3. Verify you can SSH to child servers without a password.
+    
 4. Execute ``./create.sh``. This will generate a certificate on a master server in ``/etc/letsencrypt/live/<first_domain>/`` for every 100 domains in ``domains.txt``.
-5. An attempt will be made to upload the certificates to remote servers (using the domain names as destination addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``. Configure nginx (example provided) to consume the issued certificates.
 
+5. An attempt will be made to upload the certificates to remote servers (using the domain names as destination addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``. Configure nginx (example provided) to consume the issued certificates.
