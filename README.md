@@ -15,14 +15,13 @@ The ACME challenge is done through DNS (using TXT entries), which are created th
 ## Usage
 
 Follow the instructions below:
-    
-1. On master server, enter the domains to issue certificates for in ``domains.txt`` (one domain per line), for example:  
-```
-example.com
-x.example.com
-y.example.com
-z.example.com
-```
+1. On master server, enter the domains to issue certificates for in ``domains.txt`` (one domain per line), for example:
+    ```
+    example.com
+    x.example.com
+    y.example.com
+    z.example.com
+    ```
 2. Configure the required values in ``config.json``:
 ```
 {
