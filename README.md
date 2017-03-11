@@ -16,7 +16,7 @@ The ACME challenge is done through DNS (using TXT entries), which are created th
 
 Follow the instructions below:
     
-1. Enter the domains to issue certificates for in ``domains.txt`` (one domain per line), for example:
+1. On master server, enter the domains to issue certificates for in ``domains.txt`` (one domain per line), for example:
 ```
 example.com
 x.example.com
