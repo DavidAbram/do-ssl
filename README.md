@@ -24,7 +24,6 @@ y.example.com
 z.example.com
 ```
 2. Configure the required values in ``config.json``:
-
 ```
 {
     "api_token": "<set your DigitalOcean API key here>",
