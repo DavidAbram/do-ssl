@@ -33,13 +33,13 @@ z.example.com
 }
 ```
 
-3. Ensure you can SSH from the master server to child servers without a password. If not, take the following actions:
+Ensure you can SSH from the master server to child servers without a password. If not, take the following actions:
 
     1. On the master server, use ``ssh-keygen`` to generate a SSH key pair without a passphrase.
     2. Copy the content of ``/root/.ssh/id_rsa.pub`` to ``/root/.ssh/authorized_keys`` on child servers.
     3. Verify you can SSH to child servers without a password.
 
-4. Execute ``./create.sh``. This will generate a certificate on a master server in ``/etc/letsencrypt/live/<first_domain>/`` for every 100 domains in ``domains.txt``.
+Execute ``./create.sh``. This will generate a certificate on a master server in ``/etc/letsencrypt/live/<first_domain>/`` for every 100 domains in ``domains.txt``.
 
 5. An attempt will be made to upload the certificates to remote servers (using the domain names as destination addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``. Configure nginx (example provided) to consume the issued certificates.
 
