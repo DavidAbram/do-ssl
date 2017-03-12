@@ -4,7 +4,8 @@ set -euo pipefail
 # $CERTBOT_DOMAIN -> domain that is being validated, i.e. hello.example.com
 # $CERTBOT_VALIDATION -> valiation string
 
-source "$(pwd)/scripts/common.sh"
+declare basedir="$(dirname $(readlink -f $0))"
+source "$basedir/common.sh"
 
 # handle root domain case
 declare hostname=""

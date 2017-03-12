@@ -6,9 +6,10 @@ cwrite()
     echo -e "\e[1;32m=>\e[0m $1"
 }
 
-declare auth_hook="$(pwd)/scripts/auth-hook.sh"
-declare cleanup_hook="$(pwd)/scripts/cleanup-hook.sh"
-declare domains_list="$(pwd)/domains.txt"
+declare basedir="$(dirname $(readlink -f $0))"
+declare auth_hook="$basedir/scripts/auth-hook.sh"
+declare cleanup_hook="$basedir/scripts/cleanup-hook.sh"
+declare domains_list="$basedir/domains.txt"
 
 cwrite "Generating SSL certificates"
 

@@ -3,9 +3,10 @@
 # $RENEWED_LINEAGE - /etc/letsencrypt/live/example.com
 # $RENEWED_DOMAINS - example.com hello.example.com
 
-source "$(pwd)/scripts/common.sh"
+declare basedir="$(dirname $(readlink -f $0))"
+source "$basedir/common.sh"
 
-declare renew_exec="$(pwd)/renew_exec.sh"
+declare renew_exec="$basedir/../renew_exec.sh"
 declare ssh_params="-q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 IFS=' ' read -r -a array <<< "$RENEWED_DOMAINS"
@@ -29,7 +30,7 @@ do
     log "Copying $src2 to $dest2"
     scp $ssh_params $src2 $dest2
 
-    log "Executing renew commands on $server"
+    log "Executing post-renew commands on $server"
     ssh $ssh_params root@$server 'bash -s' < $renew_exec
 
 done
