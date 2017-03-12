@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare hook="$(pwd)/renew-hook.sh"
+declare hook="$(pwd)/scripts/renew-hook.sh"
 
 certbot renew --force-renewal --preferred-challenges dns \
 --test-cert \

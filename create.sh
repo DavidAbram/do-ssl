@@ -2,12 +2,14 @@
 
 cwrite()
 {
-    echo -e "\e[92m=>\e[0m \e[97m$1\e[0m"
+    echo -e "\e[1;32m=>\e[0m $1"
 }
 
 declare auth_hook="$(pwd)/scripts/auth-hook.sh"
 declare cleanup_hook="$(pwd)/scripts/cleanup-hook.sh"
 declare domains_list="$(pwd)/domains.txt"
+
+cwrite "Generating SSL certificates"
 
 while true
 do
