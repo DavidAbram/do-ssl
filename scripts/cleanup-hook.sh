@@ -3,7 +3,7 @@
 # $CERTBOT_DOMAIN -> domain that is being validated, i.e. hello.example.com
 # $CERTBOT_VALIDATION -> valiation string
 
-source "$(pwd)/common.sh"
+source "$(pwd)/scripts/common.sh"
 
 # get ID
 declare id_path="$tmp_dir/id_$CERTBOT_DOMAIN"
