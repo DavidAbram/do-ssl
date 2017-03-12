@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # $CERTBOT_DOMAIN -> domain that is being validated, i.e. hello.example.com
 # $CERTBOT_VALIDATION -> valiation string

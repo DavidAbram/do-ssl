@@ -1,4 +1,4 @@
-set -euo pipefail
+#!/bin/bash
 
 log()
 {
