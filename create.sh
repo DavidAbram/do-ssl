@@ -16,7 +16,7 @@ do
     echo "$params"
 
     # --test-cert
-    # --force-renewal
+    # --force-renewal 
 
     certbot certonly --manual -d $params --preferred-challenges dns \
     --test-cert \
