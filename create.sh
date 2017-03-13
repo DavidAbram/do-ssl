@@ -1,35 +1,40 @@
 #!/bin/bash
 set -euo pipefail
 
-cwrite()
-{
-    echo -e "\e[1;32m=>\e[0m $1"
-}
+declare base_dir="$(dirname $(readlink -f $0))"
+source "$base_dir/scripts/common.sh"
+source "$base_dir/scripts/upload.sh"
 
-declare basedir="$(dirname $(readlink -f $0))"
-declare auth_hook="$basedir/scripts/auth-hook.sh"
-declare cleanup_hook="$basedir/scripts/cleanup-hook.sh"
-declare domains_list="$basedir/domains.txt"
+declare auth_hook="$base_dir/scripts/auth-hook.sh"
+declare cleanup_hook="$base_dir/scripts/cleanup-hook.sh"
+declare domains_list="$base_dir/domains.txt"
 
-cwrite "Generating SSL certificates"
+log "Generating SSL certificates for $domains_list"
 
 while true
 do
 
     # the loop takes every 100 entries from domains file
-    mapfile -t -n 100 arr
-    (( ${#arr} > 0 )) || break
+    mapfile -t -n 100 domains
 
-    declare params=$(IFS=, ; echo "${arr[*]}")
-    cwrite "certbot parameter: $params"
+    if [ "${#domains[@]}" -gt 0 ]
+    then
 
-    # --test-cert
-    # --force-renewal
+        declare params=$(IFS=, ; echo "${domains[*]}")
+        log "certbot parameter: $params"
 
-    certbot certonly --manual -d $params --preferred-challenges dns \
-    --test-cert \
-    --agree-tos --noninteractive --manual-public-ip-logging-ok \
-    --manual-auth-hook $auth_hook --manual-cleanup-hook $cleanup_hook
+        certbot certonly --manual -d $params --preferred-challenges dns \
+        --test-cert \
+        --agree-tos --noninteractive --manual-public-ip-logging-ok \
+        --manual-auth-hook $auth_hook --manual-cleanup-hook $cleanup_hook
+
+        declare lineage="/etc/letsencrypt/live/${domains[0]}"
+        upload $lineage $params
+
+    else
+        # all domains read
+        break
+    fi
 
 done < $domains_list
 

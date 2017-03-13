@@ -1,20 +1,24 @@
 #!/bin/bash
+set -euo pipefail
 
 log()
 {
     echo "$(date): $1" >> certbot.log
+    echo -e "\e[1;32m=>\e[0m $1"
 }
 
-declare basedir="$(dirname $(readlink -f $0))"
+declare config_dir="$(dirname $(readlink -f $0))"
 declare config_file="config.json"
-declare tmp_dir="/tmp/do_certbot"
 
-declare api_token="$(cat $basedir/../$config_file | jq -r '.api_token')"
-declare master_domain="$(cat $basedir/../$config_file | jq -r '.master_domain')"
+[[ -f "$config_dir/../$config_file" ]] && declare config_path="$config_dir/../$config_file"
+[[ -f "$config_dir/$config_file" ]] && declare config_path="$config_dir/$config_file"
+
+declare api_token=$(cat $config_path | jq -r ".api_token")
+declare master_domain=$(cat $config_path | jq -r ".master_domain")
 
 declare content_type="Content-Type: application/json"
 declare auth_header="Authorization: Bearer $api_token"
 declare api_url="https://api.digitalocean.com/v2/domains/$master_domain/records"
 
-# ensure tmp dir
+declare tmp_dir="/tmp/do_certbot"
 mkdir -p "$tmp_dir"

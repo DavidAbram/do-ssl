@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-declare basedir="$(dirname $(readlink -f $0))"
-declare renew_hook="$basedir/scripts/renew-hook.sh"
+declare base_dir="$(dirname $(readlink -f $0))"
+declare renew_hook="$base_dir/scripts/renew-hook.sh"
 
 certbot renew --force-renewal --preferred-challenges dns \
 --test-cert \
