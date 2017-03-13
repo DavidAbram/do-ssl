@@ -24,7 +24,6 @@ do
         log "certbot parameter: $params"
 
         certbot certonly --manual -d $params --preferred-challenges dns \
-        --test-cert \
         --agree-tos --noninteractive --manual-public-ip-logging-ok \
         --manual-auth-hook $auth_hook --manual-cleanup-hook $cleanup_hook
 
