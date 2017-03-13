@@ -7,6 +7,6 @@ source "$base_dir/scripts/common.sh"
 
 log "Renewing local SSL certificates"
 
-certbot renew --force-renewal --preferred-challenges dns \
+certbot renew --preferred-challenges dns \
 --agree-tos --non-interactive --manual-public-ip-logging-ok \
 --renew-hook $renew_hook

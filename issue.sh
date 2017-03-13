@@ -9,7 +9,7 @@ declare auth_hook="$base_dir/scripts/auth-hook.sh"
 declare cleanup_hook="$base_dir/scripts/cleanup-hook.sh"
 declare domains_list="$base_dir/domains.txt"
 
-log "Generating new SSL certificates for $domains_list"
+log "Issuing new SSL certificates for $domains_list"
 
 while true
 do
