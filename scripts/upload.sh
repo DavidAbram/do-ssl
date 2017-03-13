@@ -42,7 +42,7 @@ upload()
             log "Copying $item"
             scp $ssh_params $privkey $dest_privkey || error "Unable to copy $item"
 
-            item="post-upload commands on $domain"
+            item="post-upload commands from $post_exec on $domain"
             log "Executing $item"
             ssh $ssh_params root@$domain 'bash -s' < $post_exec || error "Unable to execute $item"
 

@@ -4,8 +4,8 @@ set -euo pipefail
 declare config_dir="$(dirname $(readlink -f $0))"
 declare config_file="config.json"
 
-[[ -f "$config_dir/../$config_file" ]] && declare config_path="$config_dir/../$config_file"
 [[ -f "$config_dir/$config_file" ]] && declare config_path="$config_dir/$config_file"
+[[ -f "$config_dir/../$config_file" ]] && declare config_path="$config_dir/../$config_file"
 
 declare root_dir=$(dirname "$config_path")
 
