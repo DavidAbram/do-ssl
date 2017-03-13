@@ -43,12 +43,12 @@ The ACME challenge is done through DNS (using TXT entries), which are created th
 
 If you successfully issued the certificate, you can configure auto-renewal.  Auto-renewal is achieved using systemd service (timer) on master server:
 
-1. Configure provided ``systemd/renew.service`` to point to correct absolute path to ``renew.sh`` on the line ``ExecStart=/home/user/digitalocean-ssl/renew.sh``
+1. Configure provided ``systemd/renew.service`` to point to correct absolute path to ``renew.sh`` on the line ``ExecStart=/home/user/digitalocean-ssl/renew.sh``.
 
-2. Copy both ``systemd/renew.service`` and ``systemd/renew.timer`` to ``/etc/systemd/system/``
+2. Copy both ``systemd/renew.service`` and ``systemd/renew.timer`` to ``/etc/systemd/system/``.
 
-3. Run ``systemctl enable renew`` and ``systemctl start renew``
+3. Run ``systemctl enable renew`` and ``systemctl start renew``.
 
-4. Service should now be running once a day. Verify this by running ``journalctl -u renew``
+4. Service should now be running once a day. Verify this by running ``journalctl -u renew``.
 
 When a certificate is renewed, it will be uploaded to appropriate servers using the same mechanism as when originally issued.
