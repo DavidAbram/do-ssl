@@ -12,13 +12,13 @@ declare root_dir=$(dirname "$config_path")
 log()
 {
     echo "$(date): $1" >> $root_dir/certbot.log
-    echo -e "\e[1;32m=>\e[0m $1"
+    echo -e "\e[1;32m=>\e[0m \e[1;37m$1\e[0m"
 }
 
 error()
 {
     echo "$(date): ERROR: $1" >> $root_dir/certbot.log
-    echo -e "\e[0;31m=>\e[0m $1"
+    echo -e "\e[0;31m=>\e[0m \e[1;37m$1\e[0m"
 }
 
 declare api_token=$(cat $config_path | jq -r ".api_token")
