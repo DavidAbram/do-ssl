@@ -39,7 +39,7 @@ The ACME challenge is done through DNS (using TXT entries), which are created th
 
 5. An attempt will be made to upload the certificates to remote servers (using the domain names as destination addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``. Configure nginx (example provided) to consume the issued certificates.
 
-### Renewing SSL certificates
+### Auto-renew SSL certificates
 
 If you successfully issued the certificates, configure auto-renewal. Auto-renewal is achieved using systemd service (timer) on master server:
 
@@ -51,4 +51,4 @@ If you successfully issued the certificates, configure auto-renewal. Auto-renewa
 
 4. Service should now be running once a day. Verify this by running ``journalctl -u renew``
 
-
+When a certificate is renewed, it will be uploaded to appropriate servers using the same mechanism as when originally issued.
