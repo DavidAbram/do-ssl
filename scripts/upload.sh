@@ -6,8 +6,7 @@ declare base_dir="$(dirname $(readlink -f $0))"
 [[ -f "$base_dir/common.sh" ]] && source "$base_dir/common.sh"
 [[ -f "$base_dir/scripts/common.sh" ]] && source "$base_dir/scripts/common.sh"
 
-[[ -f "$base_dir/../post_exec.sh" ]] && declare post_exec="$base_dir/../post_exec.sh"
-[[ -f "$base_dir/post_exec.sh" ]] && declare post_exec="$base_dir/post_exec.sh"
+declare post_exec="$root_dir/post_exec.sh"
 
 upload()
 {

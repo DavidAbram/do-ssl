@@ -1,4 +1,4 @@
 {
-    "api_token": "<set your DigitalOcean API key here>",
-    "master_domain": "<set your master domain here, i.e. example.com>"
+    "api_token": "6e297e64f1867121dc36328907619c832096ce769349cb98fc8d9b6f7a7b13ee",
+    "master_domain": "echodb.io"
 }
