@@ -45,7 +45,7 @@ If you successfully issued the certificate, you can configure auto-renewal.  Aut
 
 1. Configure ``post_exec.sh`` to execute the appropriate commands on the child servers when certificate is renewed and copied over.
 
-2. Configure provided ``systemd/renew.service`` to point to correct absolute path to ``renew.sh`` on the line ``ExecStart=/home/user/digitalocean-ssl/renew.sh``.
+2. Configure provided ``systemd/renew.service`` to point to correct absolute path to ``renew.sh`` on the line ``ExecStart=/home/user/do-ssl/renew.sh``.
 
 3. Copy both ``systemd/renew.service`` and ``systemd/renew.timer`` to ``/etc/systemd/system/``.
 
@@ -53,4 +53,4 @@ If you successfully issued the certificate, you can configure auto-renewal.  Aut
 
 5. Service should now be running once a day (on a random time) on the master server. Verify this by running ``journalctl -u renew``.
 
-N.B. When a certificate is renewed, it will be uploaded to appropriate servers using the same mechanism as when originally issued.
+When a certificate is renewed, it will be uploaded to appropriate servers using the same mechanism as when originally issued.
