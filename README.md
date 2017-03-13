@@ -51,6 +51,6 @@ If you successfully issued the certificate, you can configure auto-renewal.  Aut
 
 4. Run ``systemctl enable renew`` and ``systemctl start renew``.
 
-5. Service should now be running once a day. Verify this by running ``journalctl -u renew``.
+5. Service should now be running once a day (on a random time) on the master server. Verify this by running ``journalctl -u renew``.
 
 N.B. When a certificate is renewed, it will be uploaded to appropriate servers using the same mechanism as when originally issued.
