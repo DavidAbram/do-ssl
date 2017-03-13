@@ -15,7 +15,8 @@ The ACME challenge is done through DNS (using TXT entries), which are created th
 ## Usage
 
 #### Issuing SSL certificates
-    
+
+
 1. Configure the required values in ``config.json``:
     ```
     {
@@ -41,6 +42,8 @@ The ACME challenge is done through DNS (using TXT entries), which are created th
 
 5. An attempt will be made to upload the certificates to remote servers (using the domain names as destination addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``. Configure nginx (example provided) to consume the issued certificates.
 
+
 #### Renewing SSL certificates
+
 
 
