@@ -15,8 +15,7 @@ The ACME challenge is done through DNS (using TXT entries), which are created th
 ## Usage
 
 #### Issuing SSL certificates
-
-
+  
 1. Configure the required values in ``config.json``:
     ```
     {
