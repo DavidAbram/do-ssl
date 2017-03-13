@@ -15,21 +15,20 @@ The ACME challenge is done through DNS (using TXT entries), which are created th
 ## Usage
 
 ### Issuing SSL certificates
-
-1. On master server, enter the domains to issue certificates for in ``domains.txt`` (one domain per line), for example:
-    ```
-    example.com
-    x.example.com
-    y.example.com
-    z.example.com
-    ```
     
-2. Configure the required values in ``config.json``:
+1. Configure the required values in ``config.json``:
     ```
     {
         "api_token": "<set your DigitalOcean API key here>",
         "master_domain": "<set your master domain here, i.e. example.com>"
     }
+    ```
+2. On master server, enter the domains to issue certificates for in ``domains.txt`` (one domain per line), for example:
+    ```
+    example.com
+    x.example.com
+    y.example.com
+    z.example.com
     ```
 
 3. Ensure you can SSH from the master server to child servers without a password. If not, take the following actions:
