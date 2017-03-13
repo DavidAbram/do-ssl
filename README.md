@@ -47,7 +47,7 @@ If you successfully issued the certificate, you can configure auto-renewal.  Aut
 
 2. Configure provided ``systemd/renew.service`` to point to correct absolute path to ``renew.sh`` on the line ``ExecStart=/home/user/do-ssl/renew.sh``.
 
-3. Copy both ``systemd/renew.service`` and ``systemd/renew.timer`` to ``/etc/systemd/system/``.
+3. Copy (or symlink) both ``systemd/renew.service`` and ``systemd/renew.timer`` to ``/etc/systemd/system/``.
 
 4. Run ``systemctl enable renew.timer`` and ``systemctl start renew.timer``.
 
