@@ -1,4 +1,4 @@
-# digitalocean-ssl
+# do-ssl
 
 ## Introduction
 
