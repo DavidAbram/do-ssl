@@ -41,7 +41,7 @@ The ACME challenge is done through DNS (using TXT entries), which are created th
 
 ### Auto-renew SSL certificates
 
-If you successfully issued the certificates, configure auto-renewal. Auto-renewal is achieved using systemd service (timer) on master server:
+If you successfully issued the certificate, you can configure auto-renewal.  Auto-renewal is achieved using systemd service (timer) on master server:
 
 1. Configure provided ``systemd/renew.service`` to point to correct absolute path on the line ``ExecStart=/home/user/digitalocean-ssl/renew.sh``
 
