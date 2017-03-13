@@ -8,7 +8,7 @@ The idea behind this project is to issue a single certificate on a "master" serv
 
 When issued or renewed, the script uploads the certificates to child servers using SSH. You can supply the commands to be executed on child servers on a successful renewal, such as service restart. For this to work correctly, passphrase-less SSH key pair (public key) on child servers must be configured.
 
-The ACME challenge is done through DNS (using TXT entries), which are created through API on DigitalOcean domain records, as displayed on the image below:
+The ACME challenge is done through DNS using TXT entries, which are created through API on DigitalOcean domain records, as displayed on the image below:
 
 ![alt tag](https://igorsaric.github.io/images/cert.svg)
 
