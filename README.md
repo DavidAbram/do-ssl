@@ -49,8 +49,8 @@ If you successfully issued the certificate, you can configure auto-renewal.  Aut
 
 3. Copy both ``systemd/renew.service`` and ``systemd/renew.timer`` to ``/etc/systemd/system/``.
 
-4. Run ``systemctl enable renew`` and ``systemctl start renew``.
+4. Run ``systemctl enable renew.timer`` and ``systemctl start renew.timer``.
 
-5. Service should now be running once a day (on a random time) on the master server. Verify this by running ``journalctl -u renew``.
+5. Service should now be running once a day (on a random time) on the master server. Verify this by running ``journalctl -u renew.timer``.
 
 When a certificate is renewed, it will be uploaded to appropriate servers using the same mechanism as when originally issued.
