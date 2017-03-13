@@ -7,6 +7,12 @@ log()
     echo -e "\e[1;32m=>\e[0m $1"
 }
 
+error()
+{
+    echo "$(date): ERROR: $1" >> certbot.log
+    echo -e "\e[0;31m=>\e[0m $1"
+}
+
 declare config_dir="$(dirname $(readlink -f $0))"
 declare config_file="config.json"
 

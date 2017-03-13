@@ -6,8 +6,8 @@ declare base_dir="$(dirname $(readlink -f $0))"
 [[ -f "$base_dir/common.sh" ]] && source "$base_dir/common.sh"
 [[ -f "$base_dir/scripts/common.sh" ]] && source "$base_dir/scripts/common.sh"
 
-[[ -f "$base_dir/../renew_exec.sh" ]] && declare renew_exec="$base_dir/../renew_exec.sh"
-[[ -f "$base_dir/renew_exec.sh" ]] && declare renew_exec="$base_dir/renew_exec.sh"
+[[ -f "$base_dir/../post_exec.sh" ]] && declare post_exec="$base_dir/../post_exec.sh"
+[[ -f "$base_dir/post_exec.sh" ]] && declare post_exec="$base_dir/post_exec.sh"
 
 upload()
 {
@@ -29,18 +29,27 @@ upload()
             declare dest_fullchain="root@$domain:/etc/certs/fullchain.pem"
             declare dest_privkey="root@$domain:/etc/certs/privkey.pem"
 
-            ssh $ssh_params root@$domain "mkdir -p /etc/certs"
+            declare item=""
 
-            log "Copying $fullchain to $dest_fullchain"
-            scp $ssh_params $fullchain $dest_fullchain
+            item="/etc/certs on $domain"
+            log "Ensuring $item"
+            ssh $ssh_params root@$domain "mkdir -p /etc/certs" || error "Unable to ensure $item"
 
-            log "Copying $privkey to $dest_privkey"
-            scp $ssh_params $privkey $dest_privkey
+            item="$fullchain to $dest_fullchain"
+            log "Copying $item"
+            scp $ssh_params $fullchain $dest_fullchain || error "Unable to copy $item"
 
-            log "Executing post-renew commands on $domain"
-            ssh $ssh_params root@$domain 'bash -s' < $renew_exec || true
+            item="$privkey to $dest_privkey"
+            log "Copying $item"
+            scp $ssh_params $privkey $dest_privkey || error "Unable to copy $item"
+
+            item="post-upload commands on $domain"
+            log "Executing $item"
+            ssh $ssh_params root@$domain 'bash -s' < $post_exec || error "Unable to execute $item"
 
         done
+    else
+        error "Cannot find certicates in $lineage"
+        exit -1
     fi
 }
-
