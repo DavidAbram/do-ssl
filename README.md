@@ -15,8 +15,8 @@ The ACME challenge is done through DNS using TXT entries, which are created thro
 ## Prerequisites
 
 ```
-certbot 0.12
 bash 4.x+
+certbot 0.12
 jq
 openssh
 ```
