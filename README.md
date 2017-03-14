@@ -12,6 +12,14 @@ The ACME challenge is done through DNS using TXT entries, which are created thro
 
 ![alt tag](https://igorsaric.github.io/images/cert.svg)
 
+## Prerequisites
+
+```
+certbot 0.12
+bash 4.x+
+jq
+```
+
 ## Usage
 ### Issue SSL certificates
 1. Configure the required values in ``config.json``:
