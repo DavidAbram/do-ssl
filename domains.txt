@@ -1,3 +1,4 @@
 example.com
-hello.example.com
-world.example.com
+x.example.com
+y.example.com
+z.example.com

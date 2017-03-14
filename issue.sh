@@ -24,7 +24,7 @@ do
         log "certbot parameter: $params"
 
         certbot certonly --manual -d $params --preferred-challenges dns \
-        --agree-tos --noninteractive --manual-public-ip-logging-ok \
+        --agree-tos --email user@${domains[0]} --noninteractive --manual-public-ip-logging-ok \
         --manual-auth-hook $auth_hook --manual-cleanup-hook $cleanup_hook
 
         declare lineage="/etc/letsencrypt/live/${domains[0]}"
