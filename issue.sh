@@ -21,14 +21,15 @@ do
     then
 
         declare params=$(IFS=, ; echo "${domains[*]}")
-        log "certbot parameter: $params"
+        declare email="user@${domains[0]}"
+        log "certbot parameter: -d $params --email $email"
 
         certbot certonly --manual -d $params --preferred-challenges dns \
-        --agree-tos --email user@${domains[0]} --noninteractive --manual-public-ip-logging-ok \
+        --agree-tos --email $email --noninteractive --manual-public-ip-logging-ok \
         --manual-auth-hook $auth_hook --manual-cleanup-hook $cleanup_hook
 
-        declare lineage="/etc/letsencrypt/live/${domains[0]}"
-        upload $lineage $params
+        #declare lineage="/etc/letsencrypt/live/${domains[0]}"
+        #upload $lineage $params
 
     else
         # all domains read
