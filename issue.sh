@@ -11,6 +11,9 @@ declare domains_list="$base_dir/domains.txt"
 
 log "Issuing new SSL certificates for $domains_list"
 
+# remove empty lines from domains.txt
+sed -i '/^$/d' $domains_list
+
 while true
 do
 
@@ -19,17 +22,17 @@ do
 
     if [ "${#domains[@]}" -gt 0 ]
     then
-
+	
         declare params=$(IFS=, ; echo "${domains[*]}")
-        declare email="user@${domains[0]}"
+        declare email="user@$master_domain"
         log "certbot parameter: -d $params --email $email"
 
         certbot certonly --manual -d $params --preferred-challenges dns \
         --agree-tos --email $email --noninteractive --manual-public-ip-logging-ok \
         --manual-auth-hook $auth_hook --manual-cleanup-hook $cleanup_hook
 
-        declare lineage="/etc/letsencrypt/live/${domains[0]}"
-        upload $lineage $params
+        #declare lineage="/etc/letsencrypt/live/${domains[0]}"
+        #upload $lineage $params
 
     else
         # all domains read
