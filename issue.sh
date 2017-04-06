@@ -31,9 +31,6 @@ do
         --agree-tos --email $email --noninteractive --manual-public-ip-logging-ok \
         --manual-auth-hook $auth_hook --manual-cleanup-hook $cleanup_hook
 
-        declare lineage="/etc/letsencrypt/live/${domains[0]}"
-        upload $lineage $params
-
     else
         # all domains read
         break
