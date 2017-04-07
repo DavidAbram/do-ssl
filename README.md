@@ -46,7 +46,7 @@ openssh
 
 4. Execute ``./issue.sh``. This will generate a certificate on a master server in ``/etc/letsencrypt/live/<first_domain>/`` for every 100 domains in ``domains.txt``.
 
-5. ``issue.sh`` will attempt to upload the certificates to remote servers (using the domain names as destination addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``. Configure nginx (example provided) to consume the issued certificates.
+5. Configure nginx (example provided) to consume the issued certificates.
 
 ### Auto-renew SSL certificates
 
@@ -62,4 +62,4 @@ If you successfully issued the certificate, you can configure auto-renewal.  Aut
 
 5. Service should now be running once a day (on a random time) on the master server. Verify this by running ``journalctl -u renew.timer``.
 
-When a certificate is renewed, it will be uploaded to appropriate servers using the same mechanism as when originally issued.
+When a certificate is renewed, it will attempt to upload the certificates to remote servers (using the domain names as destination addresses). The certificates will be uploaded as ``/etc/certs/fullchain.pem`` and ``/etc/certs/privkey.pem``
