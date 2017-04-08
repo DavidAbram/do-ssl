@@ -46,8 +46,6 @@ openssh
 
 4. Execute ``./issue.sh``. This will generate a certificate on a master server in ``/etc/letsencrypt/live/<first_domain>/`` for every 100 domains in ``domains.txt``.
 
-5. Configure nginx (example provided) to consume the issued certificates.
-
 ### Auto-renew SSL certificates
 
 If you successfully issued the certificate, you can configure auto-renewal.  Auto-renewal is achieved using systemd service (timer) on master server:
